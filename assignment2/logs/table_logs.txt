@@ -1,0 +1,874 @@
+[2025-03-10 10:26:01] + DATE=2024-03-01
+[2025-03-10 10:26:01] + NUM_DAYS=28
+[2025-03-10 10:26:01] + BASE_PATH=/user/hadoop/raw/logs
+[2025-03-10 10:26:01] + [[ 2024-03-01 =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+[2025-03-10 10:26:01] + YEAR=2024
+[2025-03-10 10:26:01] + MONTH=03
+[2025-03-10 10:26:01] + DAY=01
+[2025-03-10 10:26:01] + ((  10#03 < 1 || 10#03 > 12  ))
+[2025-03-10 10:26:01] + case $MONTH in
+[2025-03-10 10:26:01] + MAX_DAY=31
+[2025-03-10 10:26:01] + ((  10#01 < 1 || 10#01 > MAX_DAY  ))
+[2025-03-10 10:26:01] + echo 'Ingesting data into HDFS...'
+[2025-03-10 10:26:01] Ingesting data into HDFS...
+[2025-03-10 10:26:01] + bash ingest_all_logs.sh 2024-03-01 28
+[2025-03-10 10:26:01] Running ./ingest_logs.sh with date: 2024-03-01
+[2025-03-10 10:26:01] Ingesting Logs
+[2025-03-10 10:26:05] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/01
+[2025-03-10 10:26:08] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:08] Ingestion complete for date: 2024-03-01
+[2025-03-10 10:26:08] Running ./ingest_logs.sh with date: 2024-03-02
+[2025-03-10 10:26:08] Ingesting Logs
+[2025-03-10 10:26:11] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/02
+[2025-03-10 10:26:15] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:15] Ingestion complete for date: 2024-03-02
+[2025-03-10 10:26:15] Running ./ingest_logs.sh with date: 2024-03-03
+[2025-03-10 10:26:15] Ingesting Logs
+[2025-03-10 10:26:18] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/03
+[2025-03-10 10:26:21] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:21] Ingestion complete for date: 2024-03-03
+[2025-03-10 10:26:21] Running ./ingest_logs.sh with date: 2024-03-04
+[2025-03-10 10:26:21] Ingesting Logs
+[2025-03-10 10:26:24] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/04
+[2025-03-10 10:26:28] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:28] Ingestion complete for date: 2024-03-04
+[2025-03-10 10:26:28] Running ./ingest_logs.sh with date: 2024-03-05
+[2025-03-10 10:26:28] Ingesting Logs
+[2025-03-10 10:26:30] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/05
+[2025-03-10 10:26:33] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:33] Ingestion complete for date: 2024-03-05
+[2025-03-10 10:26:33] Running ./ingest_logs.sh with date: 2024-03-06
+[2025-03-10 10:26:33] Ingesting Logs
+[2025-03-10 10:26:36] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/06
+[2025-03-10 10:26:39] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:39] Ingestion complete for date: 2024-03-06
+[2025-03-10 10:26:39] Running ./ingest_logs.sh with date: 2024-03-07
+[2025-03-10 10:26:39] Ingesting Logs
+[2025-03-10 10:26:43] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/07
+[2025-03-10 10:26:46] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:46] Ingestion complete for date: 2024-03-07
+[2025-03-10 10:26:46] Running ./ingest_logs.sh with date: 2024-03-08
+[2025-03-10 10:26:46] Ingesting Logs
+[2025-03-10 10:26:49] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/08
+[2025-03-10 10:26:53] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:26:53] Ingestion complete for date: 2024-03-08
+[2025-03-10 10:26:53] Running ./ingest_logs.sh with date: 2024-03-09
+[2025-03-10 10:26:53] Ingesting Logs
+[2025-03-10 10:26:56] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/09
+[2025-03-10 10:27:00] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:00] Ingestion complete for date: 2024-03-09
+[2025-03-10 10:27:00] Running ./ingest_logs.sh with date: 2024-03-10
+[2025-03-10 10:27:00] Ingesting Logs
+[2025-03-10 10:27:01] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/10
+[2025-03-10 10:27:05] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:05] Ingestion complete for date: 2024-03-10
+[2025-03-10 10:27:05] Running ./ingest_logs.sh with date: 2024-03-11
+[2025-03-10 10:27:05] Ingesting Logs
+[2025-03-10 10:27:08] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/11
+[2025-03-10 10:27:12] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:12] Ingestion complete for date: 2024-03-11
+[2025-03-10 10:27:12] Running ./ingest_logs.sh with date: 2024-03-12
+[2025-03-10 10:27:12] Ingesting Logs
+[2025-03-10 10:27:15] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/12
+[2025-03-10 10:27:18] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:18] Ingestion complete for date: 2024-03-12
+[2025-03-10 10:27:18] Running ./ingest_logs.sh with date: 2024-03-13
+[2025-03-10 10:27:18] Ingesting Logs
+[2025-03-10 10:27:22] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/13
+[2025-03-10 10:27:25] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:25] Ingestion complete for date: 2024-03-13
+[2025-03-10 10:27:25] Running ./ingest_logs.sh with date: 2024-03-14
+[2025-03-10 10:27:25] Ingesting Logs
+[2025-03-10 10:27:28] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/14
+[2025-03-10 10:27:31] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:31] Ingestion complete for date: 2024-03-14
+[2025-03-10 10:27:31] Running ./ingest_logs.sh with date: 2024-03-15
+[2025-03-10 10:27:31] Ingesting Logs
+[2025-03-10 10:27:33] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/15
+[2025-03-10 10:27:36] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:36] Ingestion complete for date: 2024-03-15
+[2025-03-10 10:27:36] Running ./ingest_logs.sh with date: 2024-03-16
+[2025-03-10 10:27:36] Ingesting Logs
+[2025-03-10 10:27:40] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/16
+[2025-03-10 10:27:43] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:43] Ingestion complete for date: 2024-03-16
+[2025-03-10 10:27:43] Running ./ingest_logs.sh with date: 2024-03-17
+[2025-03-10 10:27:43] Ingesting Logs
+[2025-03-10 10:27:47] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/17
+[2025-03-10 10:27:50] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:50] Ingestion complete for date: 2024-03-17
+[2025-03-10 10:27:50] Running ./ingest_logs.sh with date: 2024-03-18
+[2025-03-10 10:27:50] Ingesting Logs
+[2025-03-10 10:27:53] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/18
+[2025-03-10 10:27:57] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:27:57] Ingestion complete for date: 2024-03-18
+[2025-03-10 10:27:57] Running ./ingest_logs.sh with date: 2024-03-19
+[2025-03-10 10:27:57] Ingesting Logs
+[2025-03-10 10:28:00] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/19
+[2025-03-10 10:28:02] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:02] Ingestion complete for date: 2024-03-19
+[2025-03-10 10:28:02] Running ./ingest_logs.sh with date: 2024-03-20
+[2025-03-10 10:28:02] Ingesting Logs
+[2025-03-10 10:28:05] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/20
+[2025-03-10 10:28:08] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:08] Ingestion complete for date: 2024-03-20
+[2025-03-10 10:28:08] Running ./ingest_logs.sh with date: 2024-03-21
+[2025-03-10 10:28:08] Ingesting Logs
+[2025-03-10 10:28:11] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/21
+[2025-03-10 10:28:15] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:15] Ingestion complete for date: 2024-03-21
+[2025-03-10 10:28:15] Running ./ingest_logs.sh with date: 2024-03-22
+[2025-03-10 10:28:15] Ingesting Logs
+[2025-03-10 10:28:18] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/22
+[2025-03-10 10:28:22] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:22] Ingestion complete for date: 2024-03-22
+[2025-03-10 10:28:22] Running ./ingest_logs.sh with date: 2024-03-23
+[2025-03-10 10:28:22] Ingesting Logs
+[2025-03-10 10:28:26] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/23
+[2025-03-10 10:28:30] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:30] Ingestion complete for date: 2024-03-23
+[2025-03-10 10:28:30] Running ./ingest_logs.sh with date: 2024-03-24
+[2025-03-10 10:28:30] Ingesting Logs
+[2025-03-10 10:28:32] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/24
+[2025-03-10 10:28:36] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:36] Ingestion complete for date: 2024-03-24
+[2025-03-10 10:28:36] Running ./ingest_logs.sh with date: 2024-03-25
+[2025-03-10 10:28:36] Ingesting Logs
+[2025-03-10 10:28:39] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/25
+[2025-03-10 10:28:43] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:43] Ingestion complete for date: 2024-03-25
+[2025-03-10 10:28:43] Running ./ingest_logs.sh with date: 2024-03-26
+[2025-03-10 10:28:43] Ingesting Logs
+[2025-03-10 10:28:47] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/26
+[2025-03-10 10:28:51] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:51] Ingestion complete for date: 2024-03-26
+[2025-03-10 10:28:51] Running ./ingest_logs.sh with date: 2024-03-27
+[2025-03-10 10:28:51] Ingesting Logs
+[2025-03-10 10:28:54] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/27
+[2025-03-10 10:28:58] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:28:58] Ingestion complete for date: 2024-03-27
+[2025-03-10 10:28:58] Running ./ingest_logs.sh with date: 2024-03-28
+[2025-03-10 10:28:58] Ingesting Logs
+[2025-03-10 10:29:01] Successfully copied user_activity_logs.csv to /user/hadoop/raw/logs/2024/03/28
+[2025-03-10 10:29:03] Successfully copied content_metadata.csv to /user/hadoop/raw/metadata
+[2025-03-10 10:29:03] Ingestion complete for date: 2024-03-28
+[2025-03-10 10:29:03] Logs processed for all dates!
+[2025-03-10 10:29:03] + echo 'Running Hive queries...'
+[2025-03-10 10:29:03] Running Hive queries...
+[2025-03-10 10:29:03] + PARTITION_QUERIES=
+[2025-03-10 10:29:03] ++ date -d 2024-03-01 +%s
+[2025-03-10 10:29:03] + START_EPOCH=1709233200
+[2025-03-10 10:29:03] + (( i=0 ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709233200 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-01
+[2025-03-10 10:29:03] ++ date -d @1709233200 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/01/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-01'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/01/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709319600 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-02
+[2025-03-10 10:29:03] ++ date -d @1709319600 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/02/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-02'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/02/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709406000 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-03
+[2025-03-10 10:29:03] ++ date -d @1709406000 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/03/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-03'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/03/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709492400 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-04
+[2025-03-10 10:29:03] ++ date -d @1709492400 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/04/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-04'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/04/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709578800 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-05
+[2025-03-10 10:29:03] ++ date -d @1709578800 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/05/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-05'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/05/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709665200 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-06
+[2025-03-10 10:29:03] ++ date -d @1709665200 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/06/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-06'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/06/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709751600 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-07
+[2025-03-10 10:29:03] ++ date -d @1709751600 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/07/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-07'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/07/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709838000 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-08
+[2025-03-10 10:29:03] ++ date -d @1709838000 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/08/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-08'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/08/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1709924400 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-09
+[2025-03-10 10:29:03] ++ date -d @1709924400 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/09/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-09'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/09/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710010800 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-10
+[2025-03-10 10:29:03] ++ date -d @1710010800 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/10/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-10'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/10/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710097200 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-11
+[2025-03-10 10:29:03] ++ date -d @1710097200 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/11/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-11'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/11/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710183600 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-12
+[2025-03-10 10:29:03] ++ date -d @1710183600 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/12/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-12'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/12/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710270000 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-13
+[2025-03-10 10:29:03] ++ date -d @1710270000 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/13/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-13'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/13/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710356400 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-14
+[2025-03-10 10:29:03] ++ date -d @1710356400 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/14/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-14'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/14/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710442800 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-15
+[2025-03-10 10:29:03] ++ date -d @1710442800 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/15/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-15'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/15/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710529200 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-16
+[2025-03-10 10:29:03] ++ date -d @1710529200 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/16/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-16'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/16/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710615600 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-17
+[2025-03-10 10:29:03] ++ date -d @1710615600 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/17/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-17'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/17/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710702000 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-18
+[2025-03-10 10:29:03] ++ date -d @1710702000 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/18/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-18'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/18/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710788400 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-19
+[2025-03-10 10:29:03] ++ date -d @1710788400 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/19/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-19'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/19/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710874800 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-20
+[2025-03-10 10:29:03] ++ date -d @1710874800 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/20/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-20'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/20/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1710961200 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-21
+[2025-03-10 10:29:03] ++ date -d @1710961200 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/21/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-21'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/21/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1711047600 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-22
+[2025-03-10 10:29:03] ++ date -d @1711047600 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/22/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-22'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/22/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1711134000 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-23
+[2025-03-10 10:29:03] ++ date -d @1711134000 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/23/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-23'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/23/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1711220400 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-24
+[2025-03-10 10:29:03] ++ date -d @1711220400 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/24/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-24'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/24/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1711306800 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-25
+[2025-03-10 10:29:03] ++ date -d @1711306800 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/25/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-25'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/25/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1711393200 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-26
+[2025-03-10 10:29:03] ++ date -d @1711393200 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/26/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-26'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/26/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1711479600 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-27
+[2025-03-10 10:29:03] ++ date -d @1711479600 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/27/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-27'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/27/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] ++ date -d @1711566000 +%Y-%m-%d
+[2025-03-10 10:29:03] + PARTITION_DATE=2024-03-28
+[2025-03-10 10:29:03] ++ date -d @1711566000 +/user/hadoop/raw/logs/%Y/%m/%d/
+[2025-03-10 10:29:03] + PARTITION_PATH=/user/hadoop/raw/logs/2024/03/28/
+[2025-03-10 10:29:03] + PARTITION_QUERIES+='ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-28'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/28/'\'';
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:03] + (( i++  ))
+[2025-03-10 10:29:03] + (( i<NUM_DAYS ))
+[2025-03-10 10:29:03] + hive -e '
+[2025-03-10 10:29:03] CREATE EXTERNAL TABLE metadata (
+[2025-03-10 10:29:03]     content_id INT,
+[2025-03-10 10:29:03]     title STRING,
+[2025-03-10 10:29:03]     category STRING,
+[2025-03-10 10:29:03]     length INT,
+[2025-03-10 10:29:03]     artist STRING
+[2025-03-10 10:29:03] )
+[2025-03-10 10:29:03] ROW FORMAT DELIMITED  
+[2025-03-10 10:29:03] FIELDS TERMINATED BY '\'','\''  
+[2025-03-10 10:29:03] STORED AS TEXTFILE  
+[2025-03-10 10:29:03] LOCATION '\''/user/hadoop/raw/metadata'\''
+[2025-03-10 10:29:03] TBLPROPERTIES ('\''skip.header.line.count'\''='\''1'\'');
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] CREATE EXTERNAL TABLE logs (
+[2025-03-10 10:29:03]     user_id INT,
+[2025-03-10 10:29:03]     content_id INT,
+[2025-03-10 10:29:03]     action STRING,
+[2025-03-10 10:29:03]     event_timestamp TIMESTAMP,  
+[2025-03-10 10:29:03]     device STRING,
+[2025-03-10 10:29:03]     region STRING,
+[2025-03-10 10:29:03]     session_id STRING
+[2025-03-10 10:29:03] )
+[2025-03-10 10:29:03] PARTITIONED BY (log_date STRING)
+[2025-03-10 10:29:03] ROW FORMAT DELIMITED  
+[2025-03-10 10:29:03] FIELDS TERMINATED BY '\'','\'' 
+[2025-03-10 10:29:03] STORED AS TEXTFILE
+[2025-03-10 10:29:03] LOCATION '\''/user/hadoop/raw/logs'\''
+[2025-03-10 10:29:03] TBLPROPERTIES ('\''skip.header.line.count'\''='\''1'\'');
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-01'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/01/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-02'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/02/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-03'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/03/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-04'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/04/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-05'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/05/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-06'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/06/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-07'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/07/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-08'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/08/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-09'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/09/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-10'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/10/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-11'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/11/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-12'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/12/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-13'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/13/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-14'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/14/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-15'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/15/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-16'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/16/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-17'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/17/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-18'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/18/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-19'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/19/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-20'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/20/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-21'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/21/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-22'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/22/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-23'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/23/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-24'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/24/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-25'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/25/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-26'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/26/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-27'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/27/'\'';
+[2025-03-10 10:29:03] ALTER TABLE logs ADD PARTITION (log_date='\''2024-03-28'\'') LOCATION '\''/user/hadoop/raw/logs/2024/03/28/'\'';
+[2025-03-10 10:29:03]   -- Insert partition queries correctly
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] CREATE TABLE fact_logs (
+[2025-03-10 10:29:03]     user_id INT, 
+[2025-03-10 10:29:03]     content_id INT,
+[2025-03-10 10:29:03]     event_timestamp TIMESTAMP,
+[2025-03-10 10:29:03]     action_id INT,
+[2025-03-10 10:29:03]     device_id INT,
+[2025-03-10 10:29:03]     region_id INT,
+[2025-03-10 10:29:03]     session_id STRING
+[2025-03-10 10:29:03] )
+[2025-03-10 10:29:03] PARTITIONED BY (log_date STRING)
+[2025-03-10 10:29:03] STORED AS PARQUET;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] CREATE TABLE dim_content (
+[2025-03-10 10:29:03]     content_id INT,
+[2025-03-10 10:29:03]     title STRING,
+[2025-03-10 10:29:03]     category STRING,
+[2025-03-10 10:29:03]     length INT,
+[2025-03-10 10:29:03]     artist STRING
+[2025-03-10 10:29:03] )
+[2025-03-10 10:29:03] STORED AS PARQUET;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] CREATE TABLE dim_device (
+[2025-03-10 10:29:03]     device_id INT,
+[2025-03-10 10:29:03]     device STRING
+[2025-03-10 10:29:03] )
+[2025-03-10 10:29:03] STORED AS PARQUET;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] CREATE TABLE dim_region (
+[2025-03-10 10:29:03]     region_id INT,
+[2025-03-10 10:29:03]     region STRING 
+[2025-03-10 10:29:03] )
+[2025-03-10 10:29:03] STORED AS PARQUET;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] CREATE TABLE dim_action (
+[2025-03-10 10:29:03]     action_id INT,
+[2025-03-10 10:29:03]     action STRING 
+[2025-03-10 10:29:03] )
+[2025-03-10 10:29:03] STORED AS PARQUET;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] INSERT INTO dim_content
+[2025-03-10 10:29:03] SELECT content_id, title, category, length, artist FROM metadata;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] INSERT INTO dim_device
+[2025-03-10 10:29:03] SELECT 
+[2025-03-10 10:29:03]     t.device_id,
+[2025-03-10 10:29:03]     t.device
+[2025-03-10 10:29:03] FROM (
+[2025-03-10 10:29:03]     SELECT 
+[2025-03-10 10:29:03]         ROW_NUMBER() OVER (ORDER BY device) AS device_id, 
+[2025-03-10 10:29:03]         device
+[2025-03-10 10:29:03]     FROM (SELECT DISTINCT device FROM logs) AS unique_devices
+[2025-03-10 10:29:03] ) t;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] INSERT INTO dim_region
+[2025-03-10 10:29:03] SELECT 
+[2025-03-10 10:29:03]     t.region_id,
+[2025-03-10 10:29:03]     t.region
+[2025-03-10 10:29:03] FROM (
+[2025-03-10 10:29:03]     SELECT 
+[2025-03-10 10:29:03]         ROW_NUMBER() OVER (ORDER BY region) AS region_id, 
+[2025-03-10 10:29:03]         region
+[2025-03-10 10:29:03]     FROM (SELECT DISTINCT region FROM logs) AS unique_regions
+[2025-03-10 10:29:03] ) t;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] INSERT INTO dim_action
+[2025-03-10 10:29:03] SELECT 
+[2025-03-10 10:29:03]     t.action_id,
+[2025-03-10 10:29:03]     t.action
+[2025-03-10 10:29:03] FROM (
+[2025-03-10 10:29:03]     SELECT 
+[2025-03-10 10:29:03]         ROW_NUMBER() OVER (ORDER BY action) AS action_id, 
+[2025-03-10 10:29:03]         action
+[2025-03-10 10:29:03]     FROM (SELECT DISTINCT action FROM logs) AS unique_actions
+[2025-03-10 10:29:03] ) t;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] SET hive.exec.dynamic.partition=true;
+[2025-03-10 10:29:03] SET hive.exec.dynamic.partition.mode=nonstrict;
+[2025-03-10 10:29:03] 
+[2025-03-10 10:29:03] INSERT INTO fact_logs 
+[2025-03-10 10:29:03] PARTITION (log_date)
+[2025-03-10 10:29:03] SELECT 
+[2025-03-10 10:29:03]     l.user_id,
+[2025-03-10 10:29:03]     l.content_id,
+[2025-03-10 10:29:03]     l.event_timestamp,
+[2025-03-10 10:29:03]     a.action_id,
+[2025-03-10 10:29:03]     d.device_id,
+[2025-03-10 10:29:03]     r.region_id,
+[2025-03-10 10:29:03]     l.session_id,
+[2025-03-10 10:29:03]     l.log_date
+[2025-03-10 10:29:03] FROM logs l
+[2025-03-10 10:29:03] JOIN dim_action a ON l.action = a.action
+[2025-03-10 10:29:03] JOIN dim_device d ON l.device = d.device
+[2025-03-10 10:29:03] JOIN dim_region r ON l.region = r.region;
+[2025-03-10 10:29:03] '
+[2025-03-10 10:29:05] SLF4J: Class path contains multiple SLF4J bindings.
+[2025-03-10 10:29:05] SLF4J: Found binding in [jar:file:/home/hadoop/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:29:05] SLF4J: Found binding in [jar:file:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:29:05] SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-10 10:29:05] SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+[2025-03-10 10:29:06] Hive Session ID = b4f88967-e8c7-4975-ab05-91b896f01ec8
+[2025-03-10 10:29:06] 
+[2025-03-10 10:29:06] Logging initialized using configuration in jar:file:/home/hadoop/hive/lib/hive-common-3.1.2.jar!/hive-log4j2.properties Async: true
+[2025-03-10 10:29:14] Hive Session ID = 071a4a1f-501f-44af-a7a9-8fdd67ef65d2
+[2025-03-10 10:29:15] OK
+[2025-03-10 10:29:15] Time taken: 1.033 seconds
+[2025-03-10 10:29:15] OK
+[2025-03-10 10:29:15] Time taken: 0.062 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.324 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.122 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.086 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.086 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.089 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.084 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.124 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.086 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.08 seconds
+[2025-03-10 10:29:16] OK
+[2025-03-10 10:29:16] Time taken: 0.077 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.106 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.109 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.074 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.089 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.088 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.094 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.105 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.08 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.096 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.09 seconds
+[2025-03-10 10:29:17] OK
+[2025-03-10 10:29:17] Time taken: 0.07 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.09 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.099 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.088 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.069 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.087 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.071 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.082 seconds
+[2025-03-10 10:29:18] OK
+[2025-03-10 10:29:18] Time taken: 0.081 seconds
+[2025-03-10 10:29:19] OK
+[2025-03-10 10:29:19] Time taken: 0.395 seconds
+[2025-03-10 10:29:19] OK
+[2025-03-10 10:29:19] Time taken: 0.044 seconds
+[2025-03-10 10:29:19] OK
+[2025-03-10 10:29:19] Time taken: 0.056 seconds
+[2025-03-10 10:29:19] OK
+[2025-03-10 10:29:19] Time taken: 0.07 seconds
+[2025-03-10 10:29:21] Query ID = hadoop_20250310102919_d9382b2d-7aea-4e1e-af61-bd87f66cfc05
+[2025-03-10 10:29:21] Total jobs = 3
+[2025-03-10 10:29:21] Launching Job 1 out of 3
+[2025-03-10 10:29:21] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:29:21] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:29:21]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:29:21] In order to limit the maximum number of reducers:
+[2025-03-10 10:29:21]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:29:21] In order to set a constant number of reducers:
+[2025-03-10 10:29:21]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:29:23] Starting Job = job_1741535519142_0046, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0046/
+[2025-03-10 10:29:23] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0046
+[2025-03-10 10:29:32] Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:29:32] 2025-03-10 10:29:32,230 Stage-1 map = 0%,  reduce = 0%
+[2025-03-10 10:29:37] 2025-03-10 10:29:37,062 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 6.16 sec
+[2025-03-10 10:29:42] 2025-03-10 10:29:42,305 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 9.1 sec
+[2025-03-10 10:29:43] MapReduce Total cumulative CPU time: 9 seconds 100 msec
+[2025-03-10 10:29:43] Ended Job = job_1741535519142_0046
+[2025-03-10 10:29:43] Stage-4 is selected by condition resolver.
+[2025-03-10 10:29:43] Stage-3 is filtered out by condition resolver.
+[2025-03-10 10:29:43] Stage-5 is filtered out by condition resolver.
+[2025-03-10 10:29:43] Moving data to directory hdfs://localhost:9000/user/hive/warehouse/dim_content/.hive-staging_hive_2025-03-10_10-29-19_274_7375315579946563028-1/-ext-10000
+[2025-03-10 10:29:43] Loading data to table default.dim_content
+[2025-03-10 10:29:44] MapReduce Jobs Launched: 
+[2025-03-10 10:29:44] Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 9.1 sec   HDFS Read: 18342 HDFS Write: 1914 SUCCESS
+[2025-03-10 10:29:44] Total MapReduce CPU Time Spent: 9 seconds 100 msec
+[2025-03-10 10:29:44] OK
+[2025-03-10 10:29:44] Time taken: 24.822 seconds
+[2025-03-10 10:29:44] Query ID = hadoop_20250310102944_da8639c6-18da-4e3b-9c35-3464fe11aefb
+[2025-03-10 10:29:44] Total jobs = 3
+[2025-03-10 10:29:44] Launching Job 1 out of 3
+[2025-03-10 10:29:44] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:29:44] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:29:44]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:29:44] In order to limit the maximum number of reducers:
+[2025-03-10 10:29:44]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:29:44] In order to set a constant number of reducers:
+[2025-03-10 10:29:44]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:29:45] Starting Job = job_1741535519142_0047, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0047/
+[2025-03-10 10:29:45] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0047
+[2025-03-10 10:29:55] Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:29:55] 2025-03-10 10:29:55,444 Stage-1 map = 0%,  reduce = 0%
+[2025-03-10 10:30:00] 2025-03-10 10:30:00,582 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.2 sec
+[2025-03-10 10:30:05] 2025-03-10 10:30:05,736 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 6.62 sec
+[2025-03-10 10:30:06] MapReduce Total cumulative CPU time: 6 seconds 620 msec
+[2025-03-10 10:30:06] Ended Job = job_1741535519142_0047
+[2025-03-10 10:30:06] Launching Job 2 out of 3
+[2025-03-10 10:30:06] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:30:06] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:30:06]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:30:06] In order to limit the maximum number of reducers:
+[2025-03-10 10:30:06]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:30:06] In order to set a constant number of reducers:
+[2025-03-10 10:30:06]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:30:07] Starting Job = job_1741535519142_0048, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0048/
+[2025-03-10 10:30:07] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0048
+[2025-03-10 10:30:17] Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:30:17] 2025-03-10 10:30:17,517 Stage-2 map = 0%,  reduce = 0%
+[2025-03-10 10:30:22] 2025-03-10 10:30:22,691 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 3.8 sec
+[2025-03-10 10:30:27] 2025-03-10 10:30:27,841 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 6.95 sec
+[2025-03-10 10:30:28] MapReduce Total cumulative CPU time: 6 seconds 950 msec
+[2025-03-10 10:30:28] Ended Job = job_1741535519142_0048
+[2025-03-10 10:30:28] Loading data to table default.dim_device
+[2025-03-10 10:30:28] Launching Job 3 out of 3
+[2025-03-10 10:30:28] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:30:28] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:30:28]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:30:28] In order to limit the maximum number of reducers:
+[2025-03-10 10:30:28]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:30:28] In order to set a constant number of reducers:
+[2025-03-10 10:30:28]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:30:30] Starting Job = job_1741535519142_0049, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0049/
+[2025-03-10 10:30:30] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0049
+[2025-03-10 10:30:38] Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:30:38] 2025-03-10 10:30:38,701 Stage-4 map = 0%,  reduce = 0%
+[2025-03-10 10:30:43] 2025-03-10 10:30:43,845 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 3.07 sec
+[2025-03-10 10:30:47] 2025-03-10 10:30:47,977 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 5.38 sec
+[2025-03-10 10:30:50] MapReduce Total cumulative CPU time: 5 seconds 380 msec
+[2025-03-10 10:30:50] Ended Job = job_1741535519142_0049
+[2025-03-10 10:30:50] MapReduce Jobs Launched: 
+[2025-03-10 10:30:50] Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 6.62 sec   HDFS Read: 66845 HDFS Write: 169 SUCCESS
+[2025-03-10 10:30:50] Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 6.95 sec   HDFS Read: 12332 HDFS Write: 725 SUCCESS
+[2025-03-10 10:30:50] Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 5.38 sec   HDFS Read: 10814 HDFS Write: 201 SUCCESS
+[2025-03-10 10:30:50] Total MapReduce CPU Time Spent: 18 seconds 950 msec
+[2025-03-10 10:30:50] OK
+[2025-03-10 10:30:50] Time taken: 66.152 seconds
+[2025-03-10 10:30:50] Query ID = hadoop_20250310103050_2f987f06-937e-4317-9baa-11d8740df038
+[2025-03-10 10:30:50] Total jobs = 3
+[2025-03-10 10:30:50] Launching Job 1 out of 3
+[2025-03-10 10:30:50] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:30:50] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:30:50]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:30:50] In order to limit the maximum number of reducers:
+[2025-03-10 10:30:50]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:30:50] In order to set a constant number of reducers:
+[2025-03-10 10:30:50]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:30:52] Starting Job = job_1741535519142_0050, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0050/
+[2025-03-10 10:30:52] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0050
+[2025-03-10 10:31:00] Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:31:00] 2025-03-10 10:31:00,428 Stage-1 map = 0%,  reduce = 0%
+[2025-03-10 10:31:06] 2025-03-10 10:31:06,639 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.5 sec
+[2025-03-10 10:31:10] 2025-03-10 10:31:10,257 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 7.37 sec
+[2025-03-10 10:31:11] MapReduce Total cumulative CPU time: 7 seconds 370 msec
+[2025-03-10 10:31:11] Ended Job = job_1741535519142_0050
+[2025-03-10 10:31:11] Launching Job 2 out of 3
+[2025-03-10 10:31:11] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:31:11] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:31:11]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:31:11] In order to limit the maximum number of reducers:
+[2025-03-10 10:31:11]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:31:11] In order to set a constant number of reducers:
+[2025-03-10 10:31:11]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:31:12] Starting Job = job_1741535519142_0051, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0051/
+[2025-03-10 10:31:12] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0051
+[2025-03-10 10:31:22] Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:31:22] 2025-03-10 10:31:22,601 Stage-2 map = 0%,  reduce = 0%
+[2025-03-10 10:31:27] 2025-03-10 10:31:27,740 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 2.79 sec
+[2025-03-10 10:31:33] 2025-03-10 10:31:33,967 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 6.3 sec
+[2025-03-10 10:31:35] MapReduce Total cumulative CPU time: 6 seconds 300 msec
+[2025-03-10 10:31:35] Ended Job = job_1741535519142_0051
+[2025-03-10 10:31:35] Loading data to table default.dim_region
+[2025-03-10 10:31:35] Launching Job 3 out of 3
+[2025-03-10 10:31:35] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:31:35] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:31:35]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:31:35] In order to limit the maximum number of reducers:
+[2025-03-10 10:31:35]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:31:35] In order to set a constant number of reducers:
+[2025-03-10 10:31:35]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:31:36] Starting Job = job_1741535519142_0052, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0052/
+[2025-03-10 10:31:36] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0052
+[2025-03-10 10:31:44] Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:31:44] 2025-03-10 10:31:44,071 Stage-4 map = 0%,  reduce = 0%
+[2025-03-10 10:31:49] 2025-03-10 10:31:49,210 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 3.05 sec
+[2025-03-10 10:31:53] 2025-03-10 10:31:53,321 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 5.36 sec
+[2025-03-10 10:31:55] MapReduce Total cumulative CPU time: 5 seconds 360 msec
+[2025-03-10 10:31:55] Ended Job = job_1741535519142_0052
+[2025-03-10 10:31:55] MapReduce Jobs Launched: 
+[2025-03-10 10:31:55] Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 7.37 sec   HDFS Read: 66884 HDFS Write: 158 SUCCESS
+[2025-03-10 10:31:55] Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 6.3 sec   HDFS Read: 12321 HDFS Write: 698 SUCCESS
+[2025-03-10 10:31:55] Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 5.36 sec   HDFS Read: 10814 HDFS Write: 202 SUCCESS
+[2025-03-10 10:31:55] Total MapReduce CPU Time Spent: 19 seconds 30 msec
+[2025-03-10 10:31:55] OK
+[2025-03-10 10:31:55] Time taken: 65.273 seconds
+[2025-03-10 10:31:55] Query ID = hadoop_20250310103155_ea3c3e00-6257-4ae2-b095-5786d960003c
+[2025-03-10 10:31:55] Total jobs = 3
+[2025-03-10 10:31:55] Launching Job 1 out of 3
+[2025-03-10 10:31:55] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:31:55] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:31:55]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:31:55] In order to limit the maximum number of reducers:
+[2025-03-10 10:31:55]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:31:55] In order to set a constant number of reducers:
+[2025-03-10 10:31:55]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:31:56] Starting Job = job_1741535519142_0053, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0053/
+[2025-03-10 10:31:56] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0053
+[2025-03-10 10:32:06] Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:32:06] 2025-03-10 10:32:06,094 Stage-1 map = 0%,  reduce = 0%
+[2025-03-10 10:32:09] 2025-03-10 10:32:09,729 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.34 sec
+[2025-03-10 10:32:14] 2025-03-10 10:32:14,873 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.46 sec
+[2025-03-10 10:32:16] MapReduce Total cumulative CPU time: 5 seconds 460 msec
+[2025-03-10 10:32:16] Ended Job = job_1741535519142_0053
+[2025-03-10 10:32:16] Launching Job 2 out of 3
+[2025-03-10 10:32:16] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:32:16] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:32:16]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:32:16] In order to limit the maximum number of reducers:
+[2025-03-10 10:32:16]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:32:16] In order to set a constant number of reducers:
+[2025-03-10 10:32:16]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:32:18] Starting Job = job_1741535519142_0054, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0054/
+[2025-03-10 10:32:18] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0054
+[2025-03-10 10:32:27] Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:32:27] 2025-03-10 10:32:27,279 Stage-2 map = 0%,  reduce = 0%
+[2025-03-10 10:32:32] 2025-03-10 10:32:32,427 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 2.75 sec
+[2025-03-10 10:32:38] 2025-03-10 10:32:38,669 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 6.87 sec
+[2025-03-10 10:32:38] MapReduce Total cumulative CPU time: 6 seconds 870 msec
+[2025-03-10 10:32:38] Ended Job = job_1741535519142_0054
+[2025-03-10 10:32:38] Loading data to table default.dim_action
+[2025-03-10 10:32:38] Launching Job 3 out of 3
+[2025-03-10 10:32:38] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:32:38] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:32:38]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:32:38] In order to limit the maximum number of reducers:
+[2025-03-10 10:32:38]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:32:38] In order to set a constant number of reducers:
+[2025-03-10 10:32:38]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:32:40] Starting Job = job_1741535519142_0055, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0055/
+[2025-03-10 10:32:40] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0055
+[2025-03-10 10:32:50] Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:32:50] 2025-03-10 10:32:50,349 Stage-4 map = 0%,  reduce = 0%
+[2025-03-10 10:32:56] 2025-03-10 10:32:56,600 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 6.2 sec
+[2025-03-10 10:33:02] 2025-03-10 10:33:02,824 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 10.06 sec
+[2025-03-10 10:33:03] MapReduce Total cumulative CPU time: 10 seconds 60 msec
+[2025-03-10 10:33:03] Ended Job = job_1741535519142_0055
+[2025-03-10 10:33:03] MapReduce Jobs Launched: 
+[2025-03-10 10:33:03] Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.46 sec   HDFS Read: 66884 HDFS Write: 188 SUCCESS
+[2025-03-10 10:33:03] Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 6.87 sec   HDFS Read: 12351 HDFS Write: 741 SUCCESS
+[2025-03-10 10:33:03] Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 10.06 sec   HDFS Read: 10823 HDFS Write: 195 SUCCESS
+[2025-03-10 10:33:03] Total MapReduce CPU Time Spent: 22 seconds 390 msec
+[2025-03-10 10:33:03] OK
+[2025-03-10 10:33:03] Time taken: 68.459 seconds
+[2025-03-10 10:33:04] No Stats for default@logs, Columns: user_id, content_id, action, session_id, event_timestamp, region, device
+[2025-03-10 10:33:04] Query ID = hadoop_20250310103304_df3c4ae1-6861-4562-a73d-a2d67e49c591
+[2025-03-10 10:33:04] Total jobs = 2
+[2025-03-10 10:33:05] SLF4J: Found binding in [jar:file:/home/hadoop/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:33:05] SLF4J: Found binding in [jar:file:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:33:05] SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-10 10:33:11] 2025-03-10 10:33:11	Starting to launch local task to process map join;	maximum memory = 239075328
+[2025-03-10 10:33:14] 2025-03-10 10:33:14	Dump the side-table for tag: 1 with group count: 3 into file: file:/tmp/hive/java/hadoop/b4f88967-e8c7-4975-ab05-91b896f01ec8/hive_2025-03-10_10-33-04_026_6147110138193785815-1/-local-10005/HashTable-Stage-9/MapJoin-mapfile01--.hashtable
+[2025-03-10 10:33:14] 2025-03-10 10:33:14	Uploaded 1 File to: file:/tmp/hive/java/hadoop/b4f88967-e8c7-4975-ab05-91b896f01ec8/hive_2025-03-10_10-33-04_026_6147110138193785815-1/-local-10005/HashTable-Stage-9/MapJoin-mapfile01--.hashtable (328 bytes)
+[2025-03-10 10:33:14] 2025-03-10 10:33:14	Dump the side-table for tag: 1 with group count: 3 into file: file:/tmp/hive/java/hadoop/b4f88967-e8c7-4975-ab05-91b896f01ec8/hive_2025-03-10_10-33-04_026_6147110138193785815-1/-local-10005/HashTable-Stage-9/MapJoin-mapfile11--.hashtable
+[2025-03-10 10:33:14] 2025-03-10 10:33:14	Uploaded 1 File to: file:/tmp/hive/java/hadoop/b4f88967-e8c7-4975-ab05-91b896f01ec8/hive_2025-03-10_10-33-04_026_6147110138193785815-1/-local-10005/HashTable-Stage-9/MapJoin-mapfile11--.hashtable (339 bytes)
+[2025-03-10 10:33:14] 2025-03-10 10:33:14	Uploaded 1 File to: file:/tmp/hive/java/hadoop/b4f88967-e8c7-4975-ab05-91b896f01ec8/hive_2025-03-10_10-33-04_026_6147110138193785815-1/-local-10005/HashTable-Stage-9/MapJoin-mapfile21--.hashtable (360 bytes)
+[2025-03-10 10:33:15] Execution completed successfully
+[2025-03-10 10:33:15] MapredLocal task succeeded
+[2025-03-10 10:33:15] Launching Job 1 out of 2
+[2025-03-10 10:33:15] Number of reduce tasks is set to 0 since there's no reduce operator
+[2025-03-10 10:33:16] Starting Job = job_1741535519142_0056, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0056/
+[2025-03-10 10:33:16] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0056
+[2025-03-10 10:33:24] Hadoop job information for Stage-9: number of mappers: 1; number of reducers: 0
+[2025-03-10 10:33:24] 2025-03-10 10:33:24,764 Stage-9 map = 0%,  reduce = 0%
+[2025-03-10 10:33:35] 2025-03-10 10:33:35,183 Stage-9 map = 100%,  reduce = 0%, Cumulative CPU 9.49 sec
+[2025-03-10 10:33:36] MapReduce Total cumulative CPU time: 9 seconds 490 msec
+[2025-03-10 10:33:36] Ended Job = job_1741535519142_0056
+[2025-03-10 10:33:36] Loading data to table default.fact_logs partition (log_date=null)
+[2025-03-10 10:33:36] 
+[2025-03-10 10:33:36] 
+[2025-03-10 10:33:37] 	 Time taken to load dynamic partitions: 0.802 seconds
+[2025-03-10 10:33:37] 	 Time taken for adding to write entity : 0.002 seconds
+[2025-03-10 10:33:37] Launching Job 2 out of 2
+[2025-03-10 10:33:37] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:33:37] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:33:37]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:33:37] In order to limit the maximum number of reducers:
+[2025-03-10 10:33:37]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:33:37] In order to set a constant number of reducers:
+[2025-03-10 10:33:37]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:33:38] Starting Job = job_1741535519142_0057, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0057/
+[2025-03-10 10:33:38] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0057
+[2025-03-10 10:33:45] Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:33:45] 2025-03-10 10:33:45,141 Stage-5 map = 0%,  reduce = 0%
+[2025-03-10 10:33:50] 2025-03-10 10:33:50,324 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 3.61 sec
+[2025-03-10 10:33:55] 2025-03-10 10:33:55,492 Stage-5 map = 100%,  reduce = 100%, Cumulative CPU 6.42 sec
+[2025-03-10 10:33:56] MapReduce Total cumulative CPU time: 6 seconds 420 msec
+[2025-03-10 10:33:56] Ended Job = job_1741535519142_0057
+[2025-03-10 10:33:57] MapReduce Jobs Launched: 
+[2025-03-10 10:33:57] Stage-Stage-9: Map: 1   Cumulative CPU: 9.49 sec   HDFS Read: 71181 HDFS Write: 76509 SUCCESS
+[2025-03-10 10:33:57] Stage-Stage-5: Map: 1  Reduce: 1   Cumulative CPU: 6.42 sec   HDFS Read: 33041 HDFS Write: 35035 SUCCESS
+[2025-03-10 10:33:57] Total MapReduce CPU Time Spent: 15 seconds 910 msec
+[2025-03-10 10:33:57] OK
+[2025-03-10 10:33:57] Time taken: 53.392 seconds
+[2025-03-10 10:33:57] + echo 'Hive processing completed!'
+[2025-03-10 10:33:57] Hive processing completed!
+Total Execution Time: 476 seconds

@@ -1,0 +1,27 @@
+user_id,content_id,action,timestamp,device,region,session_id
+181,1007,skip,2024-03-16 07:40:33,mobile,APAC,6pe7ka
+110,1006,forward,2024-03-16 00:02:27,mobile,APAC,zrfxel
+104,1008,play,2024-03-16 07:30:05,mobile,EU,nmxdcq
+157,1001,play,2024-03-16 04:53:44,tablet,APAC,t05fil
+187,1001,forward,2024-03-16 04:16:24,desktop,EU,ilkck9
+145,1006,play,2024-03-16 20:56:51,tablet,US,h0thyy
+110,1009,play,2024-03-16 12:28:02,mobile,US,1m4j6d
+170,1003,forward,2024-03-16 13:32:04,tablet,EU,1hoebk
+143,1000,pause,2024-03-16 04:56:12,desktop,EU,f9nubm
+141,1002,skip,2024-03-16 23:09:05,tablet,EU,ysobjd
+198,1002,pause,2024-03-16 10:58:10,mobile,EU,r0j5de
+108,1003,skip,2024-03-16 23:14:33,desktop,EU,kv9oft
+101,1002,play,2024-03-16 12:08:46,desktop,US,fot9g2
+191,1007,pause,2024-03-16 15:03:41,desktop,APAC,bb2a2y
+157,1000,pause,2024-03-16 23:10:03,desktop,EU,t05fil
+186,1008,skip,2024-03-16 22:56:24,mobile,APAC,kajy0k
+178,1003,skip,2024-03-16 20:27:13,tablet,US,bgejh2
+196,1000,forward,2024-03-16 14:17:28,desktop,APAC,wakhem
+182,1001,skip,2024-03-16 14:49:43,desktop,EU,4jkwvl
+195,1010,play,2024-03-16 02:20:11,mobile,EU,ajqagf
+128,1007,forward,2024-03-16 21:45:05,tablet,EU,ekw8pp
+148,1009,forward,2024-03-16 08:19:41,mobile,US,qcga0d
+116,1004,play,2024-03-16 12:52:10,mobile,US,drsx3b
+139,1009,forward,2024-03-16 10:25:20,desktop,APAC,edxdnp
+131,1007,skip,2024-03-16 07:59:31,desktop,EU,m03oon
+170,1000,play,2024-03-16 03:23:19,mobile,APAC,1hoebk

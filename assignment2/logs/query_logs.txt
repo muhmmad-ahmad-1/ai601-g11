@@ -1,0 +1,442 @@
+[2025-03-10 10:34:53] + hive -e ' 
+[2025-03-10 10:34:53] SELECT 
+[2025-03-10 10:34:53]     c.category,
+[2025-03-10 10:34:53]     COUNT(*) AS play_count
+[2025-03-10 10:34:53] FROM fact_logs f
+[2025-03-10 10:34:53] JOIN dim_action a ON f.action_id = a.action_id
+[2025-03-10 10:34:53] JOIN dim_content c ON f.content_id = c.content_id
+[2025-03-10 10:34:53] WHERE a.action = '\''play'\'' 
+[2025-03-10 10:34:53] AND f.log_date BETWEEN '\''2024-03-01'\'' AND '\''2024-03-28'\''
+[2025-03-10 10:34:53] GROUP BY c.category
+[2025-03-10 10:34:53] ORDER BY play_count DESC
+[2025-03-10 10:34:53] LIMIT 10;
+[2025-03-10 10:34:53] 
+[2025-03-10 10:34:53] WITH session_durations AS (
+[2025-03-10 10:34:53]     SELECT 
+[2025-03-10 10:34:53]         session_id,
+[2025-03-10 10:34:53]         DATE_SUB(TO_DATE(event_timestamp), Pmod(DAYOFWEEK(TO_DATE(event_timestamp)) - 2, 7)) AS week_start, -- Get Monday
+[2025-03-10 10:34:53]         MAX(UNIX_TIMESTAMP(event_timestamp)) - MIN(UNIX_TIMESTAMP(event_timestamp)) AS session_length_seconds
+[2025-03-10 10:34:53]     FROM fact_logs
+[2025-03-10 10:34:53]     WHERE log_date BETWEEN '\''2024-03-01'\'' AND '\''2024-03-28'\''
+[2025-03-10 10:34:53]     GROUP BY session_id, DATE_SUB(TO_DATE(event_timestamp), Pmod(DAYOFWEEK(TO_DATE(event_timestamp)) - 2, 7))
+[2025-03-10 10:34:53] )
+[2025-03-10 10:34:53] SELECT 
+[2025-03-10 10:34:53]     week_start,
+[2025-03-10 10:34:53]     AVG(session_length_seconds) AS avg_session_length_seconds
+[2025-03-10 10:34:53] FROM session_durations
+[2025-03-10 10:34:53] GROUP BY week_start
+[2025-03-10 10:34:53] ORDER BY week_start;
+[2025-03-10 10:34:53] 
+[2025-03-10 10:34:53] SELECT 
+[2025-03-10 10:34:53]     DATE_FORMAT(f.event_timestamp, '\''yyyy-MM'\'') AS month,
+[2025-03-10 10:34:53]     r.region,
+[2025-03-10 10:34:53]     COUNT(DISTINCT f.user_id) AS 
+[2025-03-10 10:34:53]     
+[2025-03-10 10:34:53]     active_users
+[2025-03-10 10:34:53] FROM fact_logs f
+[2025-03-10 10:34:53] JOIN dim_region r ON f.region_id = r.region_id
+[2025-03-10 10:34:53] WHERE f.log_date >= '\''2024-03-01'\'' AND f.log_date < '\''2023-03-14'\''
+[2025-03-10 10:34:53] GROUP BY DATE_FORMAT(f.event_timestamp, '\''yyyy-MM'\''), r.region
+[2025-03-10 10:34:53] ORDER BY month, active_users DESC;
+[2025-03-10 10:34:53] 
+[2025-03-10 10:34:53] SELECT 
+[2025-03-10 10:34:53]     TO_DATE(f.event_timestamp) AS play_date,
+[2025-03-10 10:34:53]     r.region,
+[2025-03-10 10:34:53]     HOUR(f.event_timestamp) AS peak_hour,
+[2025-03-10 10:34:53]     COUNT(*) AS play_count
+[2025-03-10 10:34:53] FROM fact_logs f
+[2025-03-10 10:34:53] JOIN dim_action a ON f.action_id = a.action_id
+[2025-03-10 10:34:53] JOIN dim_region r ON f.region_id = r.region_id
+[2025-03-10 10:34:53] WHERE a.action = '\''play'\''  
+[2025-03-10 10:34:53] AND f.log_date BETWEEN '\''2024-03-01'\'' AND '\''2024-03-28'\'' 
+[2025-03-10 10:34:53] GROUP BY TO_DATE(f.event_timestamp), r.region, HOUR(f.event_timestamp)
+[2025-03-10 10:34:53] ORDER BY play_count DESC;
+[2025-03-10 10:34:53] '
+[2025-03-10 10:34:54] SLF4J: Class path contains multiple SLF4J bindings.
+[2025-03-10 10:34:54] SLF4J: Found binding in [jar:file:/home/hadoop/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:34:54] SLF4J: Found binding in [jar:file:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:34:54] SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-10 10:34:54] SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+[2025-03-10 10:34:56] Hive Session ID = f83c7e8b-f7fd-47dd-a94e-fa4f321a8fa0
+[2025-03-10 10:34:56] 
+[2025-03-10 10:34:56] Logging initialized using configuration in jar:file:/home/hadoop/hive/lib/hive-common-3.1.2.jar!/hive-log4j2.properties Async: true
+[2025-03-10 10:35:03] Hive Session ID = a827af01-a520-47c2-98a1-a46fea79b507
+[2025-03-10 10:35:06] Query ID = hadoop_20250310103503_37ed7584-2162-487d-a904-5d44294149d4
+[2025-03-10 10:35:06] Total jobs = 2
+[2025-03-10 10:35:07] SLF4J: Found binding in [jar:file:/home/hadoop/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:35:07] SLF4J: Found binding in [jar:file:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:35:07] SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-10 10:35:12] 2025-03-10 10:35:12	Starting to launch local task to process map join;	maximum memory = 239075328
+[2025-03-10 10:35:12] 2025-03-10 10:35:12	Uploaded 1 File to: file:/tmp/hive/java/hadoop/f83c7e8b-f7fd-47dd-a94e-fa4f321a8fa0/hive_2025-03-10_10-35-03_231_2460778676438355439-1/-local-10007/HashTable-Stage-3/MapJoin-mapfile01--.hashtable (579 bytes)
+[2025-03-10 10:35:12] 2025-03-10 10:35:12	Dump the side-table for tag: 1 with group count: 1 into file: file:/tmp/hive/java/hadoop/f83c7e8b-f7fd-47dd-a94e-fa4f321a8fa0/hive_2025-03-10_10-35-03_231_2460778676438355439-1/-local-10007/HashTable-Stage-3/MapJoin-mapfile11--.hashtable
+[2025-03-10 10:35:13] Execution completed successfully
+[2025-03-10 10:35:13] MapredLocal task succeeded
+[2025-03-10 10:35:13] Launching Job 1 out of 2
+[2025-03-10 10:35:13] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:35:13] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:35:13]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:35:13] In order to limit the maximum number of reducers:
+[2025-03-10 10:35:13]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:35:13] In order to set a constant number of reducers:
+[2025-03-10 10:35:13]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:35:16] Starting Job = job_1741535519142_0058, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0058/
+[2025-03-10 10:35:16] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0058
+[2025-03-10 10:35:22] Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:35:22] 2025-03-10 10:35:22,494 Stage-3 map = 0%,  reduce = 0%
+[2025-03-10 10:35:27] 2025-03-10 10:35:27,843 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 5.46 sec
+[2025-03-10 10:35:34] 2025-03-10 10:35:34,074 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 8.03 sec
+[2025-03-10 10:35:35] MapReduce Total cumulative CPU time: 8 seconds 30 msec
+[2025-03-10 10:35:35] Ended Job = job_1741535519142_0058
+[2025-03-10 10:35:35] Launching Job 2 out of 2
+[2025-03-10 10:35:35] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:35:35] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:35:35]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:35:35] In order to limit the maximum number of reducers:
+[2025-03-10 10:35:35]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:35:35] In order to set a constant number of reducers:
+[2025-03-10 10:35:35]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:35:36] Starting Job = job_1741535519142_0059, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0059/
+[2025-03-10 10:35:36] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0059
+[2025-03-10 10:35:45] Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:35:45] 2025-03-10 10:35:45,158 Stage-4 map = 0%,  reduce = 0%
+[2025-03-10 10:35:49] 2025-03-10 10:35:49,346 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 3.38 sec
+[2025-03-10 10:35:54] 2025-03-10 10:35:54,520 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 6.02 sec
+[2025-03-10 10:35:55] MapReduce Total cumulative CPU time: 6 seconds 20 msec
+[2025-03-10 10:35:55] Ended Job = job_1741535519142_0059
+[2025-03-10 10:35:55] MapReduce Jobs Launched: 
+[2025-03-10 10:35:55] Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 8.03 sec   HDFS Read: 89087 HDFS Write: 247 SUCCESS
+[2025-03-10 10:35:55] Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 6.02 sec   HDFS Read: 7852 HDFS Write: 220 SUCCESS
+[2025-03-10 10:35:55] Total MapReduce CPU Time Spent: 14 seconds 50 msec
+[2025-03-10 10:35:55] OK
+[2025-03-10 10:35:55] Podcast	52
+[2025-03-10 10:35:55] Acoustic	35
+[2025-03-10 10:35:55] Electronic	35
+[2025-03-10 10:35:55] Indie	31
+[2025-03-10 10:35:55] Jazz	22
+[2025-03-10 10:35:55] Pop	18
+[2025-03-10 10:35:55] Time taken: 52.432 seconds, Fetched: 6 row(s)
+[2025-03-10 10:35:56] Query ID = hadoop_20250310103555_5ca15a45-bd5e-40ee-9a05-5700f56bfbfd
+[2025-03-10 10:35:56] Total jobs = 2
+[2025-03-10 10:35:56] Launching Job 1 out of 2
+[2025-03-10 10:35:56] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:35:56] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:35:56]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:35:56] In order to limit the maximum number of reducers:
+[2025-03-10 10:35:56]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:35:56] In order to set a constant number of reducers:
+[2025-03-10 10:35:56]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:35:58] Starting Job = job_1741535519142_0060, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0060/
+[2025-03-10 10:35:58] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0060
+[2025-03-10 10:36:06] Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:36:06] 2025-03-10 10:36:06,554 Stage-1 map = 0%,  reduce = 0%
+[2025-03-10 10:36:13] 2025-03-10 10:36:13,794 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 7.87 sec
+[2025-03-10 10:36:17] 2025-03-10 10:36:17,459 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 11.75 sec
+[2025-03-10 10:36:19] MapReduce Total cumulative CPU time: 11 seconds 750 msec
+[2025-03-10 10:36:19] Ended Job = job_1741535519142_0060
+[2025-03-10 10:36:19] Launching Job 2 out of 2
+[2025-03-10 10:36:19] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:36:19] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:36:19]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:36:19] In order to limit the maximum number of reducers:
+[2025-03-10 10:36:19]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:36:19] In order to set a constant number of reducers:
+[2025-03-10 10:36:19]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:36:21] Starting Job = job_1741535519142_0061, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0061/
+[2025-03-10 10:36:21] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0061
+[2025-03-10 10:36:30] Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:36:30] 2025-03-10 10:36:30,601 Stage-2 map = 0%,  reduce = 0%
+[2025-03-10 10:36:34] 2025-03-10 10:36:34,712 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.04 sec
+[2025-03-10 10:36:39] 2025-03-10 10:36:39,894 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 6.33 sec
+[2025-03-10 10:36:41] MapReduce Total cumulative CPU time: 6 seconds 330 msec
+[2025-03-10 10:36:41] Ended Job = job_1741535519142_0061
+[2025-03-10 10:36:41] MapReduce Jobs Launched: 
+[2025-03-10 10:36:41] Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 11.75 sec   HDFS Read: 100420 HDFS Write: 236 SUCCESS
+[2025-03-10 10:36:41] Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 6.33 sec   HDFS Read: 7583 HDFS Write: 295 SUCCESS
+[2025-03-10 10:36:41] Total MapReduce CPU Time Spent: 18 seconds 80 msec
+[2025-03-10 10:36:41] OK
+[2025-03-10 10:36:41] 2024-02-26	3897.0149253731342
+[2025-03-10 10:36:41] 2024-03-04	3145.9657142857145
+[2025-03-10 10:36:41] 2024-03-11	2957.411111111111
+[2025-03-10 10:36:41] 2024-03-18	1849.926966292135
+[2025-03-10 10:36:41] 2024-03-25	2885.8653846153848
+[2025-03-10 10:36:42] Time taken: 46.219 seconds, Fetched: 5 row(s)
+[2025-03-10 10:36:42] Query ID = hadoop_20250310103642_c3cbd926-01c3-4c95-8c82-d131c3890463
+[2025-03-10 10:36:42] Total jobs = 2
+[2025-03-10 10:36:47] SLF4J: Found binding in [jar:file:/home/hadoop/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:36:47] SLF4J: Found binding in [jar:file:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:36:47] SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-10 10:36:47] 2025-03-10 10:36:47	End of local task; Time Taken: 1.607 sec.
+[2025-03-10 10:36:47] Execution completed successfully
+[2025-03-10 10:36:47] MapredLocal task succeeded
+[2025-03-10 10:36:47] Launching Job 1 out of 2
+[2025-03-10 10:36:47] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:36:47] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:36:47]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:36:47] In order to limit the maximum number of reducers:
+[2025-03-10 10:36:47]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:36:47] In order to set a constant number of reducers:
+[2025-03-10 10:36:47]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:36:49] Starting Job = job_1741535519142_0062, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0062/
+[2025-03-10 10:36:49] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0062
+[2025-03-10 10:36:55] Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:36:55] 2025-03-10 10:36:55,675 Stage-2 map = 0%,  reduce = 0%
+[2025-03-10 10:37:00] 2025-03-10 10:37:00,832 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 5.46 sec
+[2025-03-10 10:37:06] 2025-03-10 10:37:06,011 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 7.61 sec
+[2025-03-10 10:37:07] MapReduce Total cumulative CPU time: 7 seconds 610 msec
+[2025-03-10 10:37:07] Ended Job = job_1741535519142_0062
+[2025-03-10 10:37:07] Launching Job 2 out of 2
+[2025-03-10 10:37:07] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:37:07] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:37:07]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:37:07] In order to limit the maximum number of reducers:
+[2025-03-10 10:37:07]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:37:07] In order to set a constant number of reducers:
+[2025-03-10 10:37:07]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:37:08] Starting Job = job_1741535519142_0063, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0063/
+[2025-03-10 10:37:08] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0063
+[2025-03-10 10:37:16] Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:37:16] 2025-03-10 10:37:16,721 Stage-3 map = 0%,  reduce = 0%
+[2025-03-10 10:37:21] 2025-03-10 10:37:21,892 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 2.9 sec
+[2025-03-10 10:37:27] 2025-03-10 10:37:27,059 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 5.65 sec
+[2025-03-10 10:37:28] MapReduce Total cumulative CPU time: 5 seconds 650 msec
+[2025-03-10 10:37:28] Ended Job = job_1741535519142_0063
+[2025-03-10 10:37:28] MapReduce Jobs Launched: 
+[2025-03-10 10:37:28] Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 7.61 sec   HDFS Read: 13867 HDFS Write: 96 SUCCESS
+[2025-03-10 10:37:28] Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 5.65 sec   HDFS Read: 8101 HDFS Write: 87 SUCCESS
+[2025-03-10 10:37:28] Total MapReduce CPU Time Spent: 13 seconds 260 msec
+[2025-03-10 10:37:28] OK
+[2025-03-10 10:37:28] Time taken: 46.182 seconds
+[2025-03-10 10:37:28] Query ID = hadoop_20250310103728_d2951503-f000-44fe-aacb-85776af62e2f
+[2025-03-10 10:37:28] Total jobs = 2
+[2025-03-10 10:37:35] SLF4J: Found binding in [jar:file:/home/hadoop/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-10 10:37:35] 2025-03-10 10:37:35	Dump the side-table for tag: 1 with group count: 1 into file: file:/tmp/hive/java/hadoop/f83c7e8b-f7fd-47dd-a94e-fa4f321a8fa0/hive_2025-03-10_10-37-28_235_3990915000709224994-1/-local-10007/HashTable-Stage-3/MapJoin-mapfile41--.hashtable
+[2025-03-10 10:37:35] 2025-03-10 10:37:35	End of local task; Time Taken: 2.229 sec.
+[2025-03-10 10:37:36] Execution completed successfully
+[2025-03-10 10:37:36] MapredLocal task succeeded
+[2025-03-10 10:37:36] Launching Job 1 out of 2
+[2025-03-10 10:37:36] Number of reduce tasks not specified. Estimated from input data size: 1
+[2025-03-10 10:37:36] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:37:36]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:37:36] In order to limit the maximum number of reducers:
+[2025-03-10 10:37:36]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:37:36] In order to set a constant number of reducers:
+[2025-03-10 10:37:36]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:37:38] Starting Job = job_1741535519142_0064, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0064/
+[2025-03-10 10:37:38] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0064
+[2025-03-10 10:37:45] Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:37:45] 2025-03-10 10:37:45,898 Stage-3 map = 0%,  reduce = 0%
+[2025-03-10 10:37:51] 2025-03-10 10:37:51,576 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 7.44 sec
+[2025-03-10 10:37:56] 2025-03-10 10:37:56,739 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 10.74 sec
+[2025-03-10 10:37:58] MapReduce Total cumulative CPU time: 10 seconds 740 msec
+[2025-03-10 10:37:58] Ended Job = job_1741535519142_0064
+[2025-03-10 10:37:58] Launching Job 2 out of 2
+[2025-03-10 10:37:58] Number of reduce tasks determined at compile time: 1
+[2025-03-10 10:37:58] In order to change the average load for a reducer (in bytes):
+[2025-03-10 10:37:58]   set hive.exec.reducers.bytes.per.reducer=<number>
+[2025-03-10 10:37:58] In order to limit the maximum number of reducers:
+[2025-03-10 10:37:58]   set hive.exec.reducers.max=<number>
+[2025-03-10 10:37:58] In order to set a constant number of reducers:
+[2025-03-10 10:37:58]   set mapreduce.job.reduces=<number>
+[2025-03-10 10:38:00] Starting Job = job_1741535519142_0065, Tracking URL = http://DESKTOP-1I3D4OJ.:8088/proxy/application_1741535519142_0065/
+[2025-03-10 10:38:00] Kill Command = /home/hadoop/hadoop/bin/mapred job  -kill job_1741535519142_0065
+[2025-03-10 10:38:09] Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+[2025-03-10 10:38:09] 2025-03-10 10:38:09,520 Stage-4 map = 0%,  reduce = 0%
+[2025-03-10 10:38:14] 2025-03-10 10:38:14,686 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 3.64 sec
+[2025-03-10 10:38:19] 2025-03-10 10:38:19,312 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 6.48 sec
+[2025-03-10 10:38:20] MapReduce Total cumulative CPU time: 6 seconds 480 msec
+[2025-03-10 10:38:20] Ended Job = job_1741535519142_0065
+[2025-03-10 10:38:20] MapReduce Jobs Launched: 
+[2025-03-10 10:38:20] Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 10.74 sec   HDFS Read: 101557 HDFS Write: 4882 SUCCESS
+[2025-03-10 10:38:20] Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 6.48 sec   HDFS Read: 13513 HDFS Write: 5909 SUCCESS
+[2025-03-10 10:38:20] Total MapReduce CPU Time Spent: 17 seconds 220 msec
+[2025-03-10 10:38:20] OK
+[2025-03-10 10:38:20] 2024-03-16	US	12	3
+[2025-03-10 10:38:20] 2024-03-14	APAC	6	2
+[2025-03-10 10:38:20] 2024-03-23	US	11	2
+[2025-03-10 10:38:20] 2024-03-03	APAC	2	2
+[2025-03-10 10:38:20] 2024-03-26	US	20	2
+[2025-03-10 10:38:20] 2024-03-13	APAC	0	2
+[2025-03-10 10:38:20] 2024-03-28	US	15	1
+[2025-03-10 10:38:20] 2024-03-28	EU	23	1
+[2025-03-10 10:38:20] 2024-03-28	EU	18	1
+[2025-03-10 10:38:20] 2024-03-28	EU	7	1
+[2025-03-10 10:38:20] 2024-03-28	APAC	18	1
+[2025-03-10 10:38:20] 2024-03-28	APAC	5	1
+[2025-03-10 10:38:20] 2024-03-28	APAC	4	1
+[2025-03-10 10:38:20] 2024-03-27	US	8	1
+[2025-03-10 10:38:20] 2024-03-27	US	6	1
+[2025-03-10 10:38:20] 2024-03-27	EU	13	1
+[2025-03-10 10:38:20] 2024-03-27	EU	11	1
+[2025-03-10 10:38:20] 2024-03-27	EU	6	1
+[2025-03-10 10:38:20] 2024-03-27	APAC	23	1
+[2025-03-10 10:38:20] 2024-03-27	APAC	12	1
+[2025-03-10 10:38:20] 2024-03-27	APAC	10	1
+[2025-03-10 10:38:20] 2024-03-27	APAC	7	1
+[2025-03-10 10:38:20] 2024-03-27	APAC	0	1
+[2025-03-10 10:38:20] 2024-03-26	US	23	1
+[2025-03-10 10:38:20] 2024-03-26	US	1	1
+[2025-03-10 10:38:20] 2024-03-26	US	0	1
+[2025-03-10 10:38:20] 2024-03-26	EU	16	1
+[2025-03-10 10:38:20] 2024-03-26	EU	12	1
+[2025-03-10 10:38:20] 2024-03-26	APAC	15	1
+[2025-03-10 10:38:20] 2024-03-26	APAC	10	1
+[2025-03-10 10:38:20] 2024-03-26	APAC	9	1
+[2025-03-10 10:38:20] 2024-03-26	APAC	6	1
+[2025-03-10 10:38:20] 2024-03-26	APAC	5	1
+[2025-03-10 10:38:20] 2024-03-25	US	19	1
+[2025-03-10 10:38:20] 2024-03-25	US	14	1
+[2025-03-10 10:38:20] 2024-03-25	US	5	1
+[2025-03-10 10:38:20] 2024-03-25	EU	15	1
+[2025-03-10 10:38:20] 2024-03-25	EU	13	1
+[2025-03-10 10:38:20] 2024-03-25	EU	6	1
+[2025-03-10 10:38:20] 2024-03-25	APAC	15	1
+[2025-03-10 10:38:20] 2024-03-25	APAC	10	1
+[2025-03-10 10:38:20] 2024-03-24	US	18	1
+[2025-03-10 10:38:20] 2024-03-24	US	11	1
+[2025-03-10 10:38:20] 2024-03-24	EU	23	1
+[2025-03-10 10:38:20] 2024-03-24	EU	18	1
+[2025-03-10 10:38:20] 2024-03-24	EU	1	1
+[2025-03-10 10:38:20] 2024-03-24	APAC	19	1
+[2025-03-10 10:38:20] 2024-03-24	APAC	9	1
+[2025-03-10 10:38:20] 2024-03-24	APAC	4	1
+[2025-03-10 10:38:20] 2024-03-23	US	20	1
+[2025-03-10 10:38:20] 2024-03-23	US	8	1
+[2025-03-10 10:38:20] 2024-03-23	EU	13	1
+[2025-03-10 10:38:20] 2024-03-23	EU	7	1
+[2025-03-10 10:38:20] 2024-03-23	EU	0	1
+[2025-03-10 10:38:20] 2024-03-23	APAC	13	1
+[2025-03-10 10:38:20] 2024-03-23	APAC	2	1
+[2025-03-10 10:38:20] 2024-03-22	US	17	1
+[2025-03-10 10:38:20] 2024-03-22	US	1	1
+[2025-03-10 10:38:20] 2024-03-22	EU	12	1
+[2025-03-10 10:38:20] 2024-03-22	EU	8	1
+[2025-03-10 10:38:20] 2024-03-22	EU	7	1
+[2025-03-10 10:38:20] 2024-03-22	APAC	22	1
+[2025-03-10 10:38:20] 2024-03-22	APAC	12	1
+[2025-03-10 10:38:20] 2024-03-21	US	22	1
+[2025-03-10 10:38:20] 2024-03-21	US	20	1
+[2025-03-10 10:38:20] 2024-03-21	EU	10	1
+[2025-03-10 10:38:20] 2024-03-21	EU	6	1
+[2025-03-10 10:38:20] 2024-03-21	APAC	4	1
+[2025-03-10 10:38:20] 2024-03-20	US	4	1
+[2025-03-10 10:38:20] 2024-03-20	EU	16	1
+[2025-03-10 10:38:20] 2024-03-20	EU	4	1
+[2025-03-10 10:38:20] 2024-03-20	APAC	23	1
+[2025-03-10 10:38:20] 2024-03-19	US	14	1
+[2025-03-10 10:38:20] 2024-03-19	EU	21	1
+[2025-03-10 10:38:20] 2024-03-19	APAC	21	1
+[2025-03-10 10:38:20] 2024-03-19	APAC	16	1
+[2025-03-10 10:38:20] 2024-03-19	APAC	5	1
+[2025-03-10 10:38:20] 2024-03-18	US	6	1
+[2025-03-10 10:38:20] 2024-03-18	EU	22	1
+[2025-03-10 10:38:20] 2024-03-18	EU	3	1
+[2025-03-10 10:38:20] 2024-03-18	APAC	14	1
+[2025-03-10 10:38:20] 2024-03-18	APAC	10	1
+[2025-03-10 10:38:20] 2024-03-18	APAC	4	1
+[2025-03-10 10:38:20] 2024-03-17	US	20	1
+[2025-03-10 10:38:20] 2024-03-17	EU	23	1
+[2025-03-10 10:38:20] 2024-03-17	EU	2	1
+[2025-03-10 10:38:20] 2024-03-17	APAC	19	1
+[2025-03-10 10:38:20] 2024-03-16	US	20	1
+[2025-03-10 10:38:20] 2024-03-16	EU	7	1
+[2025-03-10 10:38:20] 2024-03-16	EU	2	1
+[2025-03-10 10:38:20] 2024-03-16	APAC	4	1
+[2025-03-10 10:38:20] 2024-03-16	APAC	3	1
+[2025-03-10 10:38:20] 2024-03-15	US	6	1
+[2025-03-10 10:38:20] 2024-03-15	US	3	1
+[2025-03-10 10:38:20] 2024-03-15	EU	17	1
+[2025-03-10 10:38:20] 2024-03-15	EU	7	1
+[2025-03-10 10:38:20] 2024-03-15	APAC	22	1
+[2025-03-10 10:38:20] 2024-03-15	APAC	13	1
+[2025-03-10 10:38:20] 2024-03-15	APAC	5	1
+[2025-03-10 10:38:20] 2024-03-14	US	1	1
+[2025-03-10 10:38:20] 2024-03-14	EU	4	1
+[2025-03-10 10:38:20] 2024-03-13	US	20	1
+[2025-03-10 10:38:20] 2024-03-13	EU	23	1
+[2025-03-10 10:38:20] 2024-03-13	EU	22	1
+[2025-03-10 10:38:20] 2024-03-13	EU	18	1
+[2025-03-10 10:38:20] 2024-03-13	APAC	23	1
+[2025-03-10 10:38:20] 2024-03-13	APAC	12	1
+[2025-03-10 10:38:20] 2024-03-13	APAC	7	1
+[2025-03-10 10:38:20] 2024-03-12	US	15	1
+[2025-03-10 10:38:20] 2024-03-12	US	3	1
+[2025-03-10 10:38:20] 2024-03-12	EU	22	1
+[2025-03-10 10:38:20] 2024-03-12	EU	14	1
+[2025-03-10 10:38:20] 2024-03-12	EU	6	1
+[2025-03-10 10:38:20] 2024-03-12	EU	5	1
+[2025-03-10 10:38:20] 2024-03-12	APAC	0	1
+[2025-03-10 10:38:20] 2024-03-11	US	15	1
+[2025-03-10 10:38:20] 2024-03-11	EU	19	1
+[2025-03-10 10:38:20] 2024-03-11	EU	13	1
+[2025-03-10 10:38:20] 2024-03-11	APAC	23	1
+[2025-03-10 10:38:20] 2024-03-11	APAC	12	1
+[2025-03-10 10:38:20] 2024-03-11	APAC	10	1
+[2025-03-10 10:38:20] 2024-03-10	US	8	1
+[2025-03-10 10:38:20] 2024-03-10	EU	21	1
+[2025-03-10 10:38:20] 2024-03-10	EU	7	1
+[2025-03-10 10:38:20] 2024-03-10	EU	1	1
+[2025-03-10 10:38:20] 2024-03-10	APAC	21	1
+[2025-03-10 10:38:20] 2024-03-09	US	13	1
+[2025-03-10 10:38:20] 2024-03-09	US	12	1
+[2025-03-10 10:38:20] 2024-03-09	EU	20	1
+[2025-03-10 10:38:20] 2024-03-09	EU	14	1
+[2025-03-10 10:38:20] 2024-03-09	APAC	21	1
+[2025-03-10 10:38:20] 2024-03-08	US	22	1
+[2025-03-10 10:38:20] 2024-03-08	EU	18	1
+[2025-03-10 10:38:20] 2024-03-08	EU	5	1
+[2025-03-10 10:38:20] 2024-03-08	EU	3	1
+[2025-03-10 10:38:20] 2024-03-08	APAC	23	1
+[2025-03-10 10:38:20] 2024-03-08	APAC	20	1
+[2025-03-10 10:38:20] 2024-03-08	APAC	15	1
+[2025-03-10 10:38:20] 2024-03-08	APAC	12	1
+[2025-03-10 10:38:20] 2024-03-08	APAC	7	1
+[2025-03-10 10:38:20] 2024-03-08	APAC	0	1
+[2025-03-10 10:38:20] 2024-03-07	US	19	1
+[2025-03-10 10:38:20] 2024-03-07	US	8	1
+[2025-03-10 10:38:20] 2024-03-07	US	0	1
+[2025-03-10 10:38:20] 2024-03-07	EU	8	1
+[2025-03-10 10:38:20] 2024-03-06	US	4	1
+[2025-03-10 10:38:20] 2024-03-06	US	3	1
+[2025-03-10 10:38:20] 2024-03-06	APAC	15	1
+[2025-03-10 10:38:20] 2024-03-06	APAC	1	1
+[2025-03-10 10:38:20] 2024-03-05	US	23	1
+[2025-03-10 10:38:20] 2024-03-05	US	17	1
+[2025-03-10 10:38:20] 2024-03-05	US	8	1
+[2025-03-10 10:38:20] 2024-03-05	US	7	1
+[2025-03-10 10:38:20] 2024-03-05	US	1	1
+[2025-03-10 10:38:20] 2024-03-05	EU	21	1
+[2025-03-10 10:38:20] 2024-03-05	APAC	21	1
+[2025-03-10 10:38:20] 2024-03-05	APAC	1	1
+[2025-03-10 10:38:20] 2024-03-04	EU	16	1
+[2025-03-10 10:38:20] 2024-03-04	EU	4	1
+[2025-03-10 10:38:20] 2024-03-04	EU	1	1
+[2025-03-10 10:38:20] 2024-03-04	APAC	16	1
+[2025-03-10 10:38:20] 2024-03-04	APAC	5	1
+[2025-03-10 10:38:20] 2024-03-03	US	13	1
+[2025-03-10 10:38:20] 2024-03-03	EU	11	1
+[2025-03-10 10:38:20] 2024-03-03	EU	3	1
+[2025-03-10 10:38:20] 2024-03-03	APAC	7	1
+[2025-03-10 10:38:20] 2024-03-02	US	22	1
+[2025-03-10 10:38:20] 2024-03-02	US	14	1
+[2025-03-10 10:38:20] 2024-03-02	US	13	1
+[2025-03-10 10:38:20] 2024-03-02	US	8	1
+[2025-03-10 10:38:20] 2024-03-02	EU	15	1
+[2025-03-10 10:38:20] 2024-03-02	APAC	20	1
+[2025-03-10 10:38:20] 2024-03-02	APAC	19	1
+[2025-03-10 10:38:20] 2024-03-02	APAC	18	1
+[2025-03-10 10:38:20] 2024-03-02	APAC	14	1
+[2025-03-10 10:38:20] 2024-03-02	APAC	6	1
+[2025-03-10 10:38:20] 2024-03-01	US	23	1
+[2025-03-10 10:38:20] 2024-03-01	US	20	1
+[2025-03-10 10:38:20] 2024-03-01	US	17	1
+[2025-03-10 10:38:20] 2024-03-01	US	6	1
+[2025-03-10 10:38:20] 2024-03-01	US	2	1
+[2025-03-10 10:38:20] 2024-03-01	EU	17	1
+[2025-03-10 10:38:20] 2024-03-01	EU	11	1
+[2025-03-10 10:38:20] 2024-03-01	EU	8	1
+[2025-03-10 10:38:20] 2024-03-01	APAC	16	1
+[2025-03-10 10:38:20] 2024-03-01	APAC	9	1
+[2025-03-10 10:38:20] Time taken: 52.197 seconds, Fetched: 186 row(s)
+[2025-03-10 10:38:20] + echo 'Hive DDL querying completed!'
+[2025-03-10 10:38:20] Hive DDL querying completed!
+Total Execution Time: 207 seconds
