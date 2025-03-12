@@ -32,12 +32,10 @@ ORDER BY week_start;
 SELECT 
     DATE_FORMAT(f.event_timestamp, 'yyyy-MM') AS month,
     r.region,
-    COUNT(DISTINCT f.user_id) AS 
-    
-    active_users
+    COUNT(DISTINCT f.user_id) AS active_users
 FROM fact_logs f
 JOIN dim_region r ON f.region_id = r.region_id
-WHERE f.log_date >= '2024-03-01' AND f.log_date < '2023-03-14'
+WHERE f.log_date >= '2024-03-01' AND f.log_date < '2024-03-28'
 GROUP BY DATE_FORMAT(f.event_timestamp, 'yyyy-MM'), r.region
 ORDER BY month, active_users DESC;
 
@@ -52,7 +50,8 @@ JOIN dim_region r ON f.region_id = r.region_id
 WHERE a.action = 'play'  
 AND f.log_date BETWEEN '2024-03-01' AND '2024-03-28' 
 GROUP BY TO_DATE(f.event_timestamp), r.region, HOUR(f.event_timestamp)
-ORDER BY play_count DESC;
+ORDER BY play_count DESC
+LIMIT 10;
 "
 
 echo "Hive DDL querying completed!"
