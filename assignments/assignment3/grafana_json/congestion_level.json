@@ -1,0 +1,86 @@
+{
+    "id": 1,
+    "type": "heatmap",
+    "title": "Congestion Level",
+    "gridPos": {
+      "x": 0,
+      "y": 0,
+      "h": 8,
+      "w": 12
+    },
+    "fieldConfig": {
+      "defaults": {
+        "custom": {
+          "scaleDistribution": {
+            "type": "linear"
+          },
+          "hideFrom": {
+            "tooltip": false,
+            "viz": false,
+            "legend": false
+          }
+        }
+      },
+      "overrides": []
+    },
+    "transformations": [
+      {
+        "id": "labelsToFields",
+        "options": {
+          "valueLabel": "sensor_id"
+        }
+      }
+    ],
+    "pluginVersion": "11.6.0",
+    "targets": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "eehe7rkr79wjke"
+        },
+        "editorMode": "code",
+        "expr": "sum by (sensor_id) (traffic_congestion_hotspots{job!=\"traffic_analysis\"})",
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "A"
+      }
+    ],
+    "datasource": {
+      "type": "prometheus",
+      "uid": "eehe7rkr79wjke"
+    },
+    "options": {
+      "calculate": false,
+      "yAxis": {
+        "axisPlacement": "left",
+        "reverse": false
+      },
+      "rowsFrame": {
+        "layout": "auto"
+      },
+      "color": {
+        "mode": "scheme",
+        "fill": "dark-orange",
+        "scale": "exponential",
+        "exponent": 0.5,
+        "scheme": "Oranges",
+        "steps": 64,
+        "reverse": true
+      },
+      "cellGap": 1,
+      "filterValues": {
+        "le": 1e-9
+      },
+      "tooltip": {
+        "mode": "single",
+        "yHistogram": false,
+        "showColorScale": false
+      },
+      "legend": {
+        "show": true
+      },
+      "exemplars": {
+        "color": "rgba(255,0,255,0.7)"
+      }
+    }
+  }

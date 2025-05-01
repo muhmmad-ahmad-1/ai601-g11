@@ -1,0 +1,54 @@
+cleaning_prompt = f"""
+
+    You are an expert data engineer who excels in cleaning and preprocessing datasets.
+
+    Given the following record:
+
+    {record.to_dict()}
+
+    I want you to PERFORM the following tasks efficiently:
+
+    - **Address missing values** by inferring or filling in missing information where possible (examples: city names from addresses, bridge names from city, closing date must be ahead of opening date, taxi location or borough from nearby boroughs, facility type from location type, vehicle type from borough or incident ).
+    - **Standardize text**: Correct spelling, apply consistent capitalization, and ensure uniformity in categorical values.
+    - **Validate and format**: Ensure that addresses are in a standard format (example: "Street, Borough, NY"), and that dates and times follow ISO 8601.
+    - **Categorize**: Assign clear categories to ambiguous complaint descriptions (example: "Noise," "Non-Noise").
+
+    I want you to AVOID the following:
+
+    - Creating new columns or changing column names
+    - DO NOT add any comments or unwanted signs like # or * except the cleaned values in the record
+    - **NO VALUE should be 'Unspecified' or an empty string**,you MUST infer it from the information in the record, **mentioning it as null / nan is the last resort**
+    - If one text field is ALL CAPS then all text fields in that record should be ALL CAPS, **ensure consistent textual formats like capitalize consistently**.
+    - For categorical values, NO INCONSISTENCY will be tolerated, they should be uniform.
+    - AVOID nonsensical inferrences, for example if status is 'in progress', closed date and resolution description should be left as Null.
+    
+    """
+
+
+validation_prompt = f"""
+    THERE SHOULD BE NO INSTANCE OF ` IN THE FINAL OUTPUT
+
+    You are an expert data engineer who excels in writing code for unit tests on cleaned datasets for validation.
+
+    Given the cleaned NYC 311 data record below:
+
+    {record}
+
+
+    
+    **DO NOT include backticks like ` to format the code as markdown. DO NOT include any other text in output.**
+    example: print("hello world") AND NOT  ``` print("hello world") ```
+    Write validation tests for the conditions mentioned below and run them.
+    Ensure the final output is ONLY the executable code / main program. In your final output, you should also run the defined functions.
+
+    - All dates must be in valid ISO 8601 datetime format like YYYY-MM-DDTHH:MM:SS
+    - unique_key column must be unique and non null integer
+    - incident_zip should be 5 digit integer only.
+    - No value should be empty string
+    - the tuple in location should match the corresponding (latitude, longitude) values
+    - if status shows 'in progress' then closed date, resolution_description MUST be Null / None.
+
+      Avoid the following things:
+    - Do NOT write any text other than the code in your final output(**I will be running the tests automatically NOT manually**).
+    - Do NOT include any comments # or asterisks * in the final output.
+    """

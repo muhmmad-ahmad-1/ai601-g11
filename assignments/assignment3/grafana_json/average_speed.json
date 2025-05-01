@@ -1,0 +1,107 @@
+{
+    "id": 1,
+    "type": "timeseries",
+    "title": "Average Speed per Sensor",
+    "gridPos": {
+      "x": 0,
+      "y": 0,
+      "h": 8,
+      "w": 24
+    },
+    "fieldConfig": {
+      "defaults": {
+        "custom": {
+          "drawStyle": "line",
+          "lineInterpolation": "linear",
+          "barAlignment": 0,
+          "barWidthFactor": 0.6,
+          "lineWidth": 1,
+          "fillOpacity": 0,
+          "gradientMode": "none",
+          "spanNulls": false,
+          "insertNulls": false,
+          "showPoints": "never",
+          "pointSize": 5,
+          "stacking": {
+            "mode": "none",
+            "group": "A"
+          },
+          "axisPlacement": "left",
+          "axisLabel": "Average Speed (km/h)",
+          "axisColorMode": "text",
+          "axisBorderShow": true,
+          "scaleDistribution": {
+            "type": "linear"
+          },
+          "axisCenteredZero": false,
+          "hideFrom": {
+            "tooltip": false,
+            "viz": false,
+            "legend": false
+          },
+          "thresholdsStyle": {
+            "mode": "off"
+          },
+          "axisWidth": 50,
+          "lineStyle": {
+            "fill": "solid"
+          }
+        },
+        "color": {
+          "mode": "palette-classic"
+        },
+        "mappings": [],
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            {
+              "color": "green",
+              "value": null
+            },
+            {
+              "color": "red",
+              "value": 80
+            }
+          ]
+        }
+      },
+      "overrides": []
+    },
+    "transformations": [
+      {
+        "id": "labelsToFields",
+        "options": {
+          "valueLabel": "sensor_id"
+        }
+      }
+    ],
+    "pluginVersion": "11.6.0",
+    "targets": [
+      {
+        "editorMode": "code",
+        "expr": "sum by (sensor_id) (traffic_average_speed{job!=\"traffic_analysis\"})",
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "A"
+      }
+    ],
+    "datasource": {
+      "uid": "eehe7rkr79wjke"
+    },
+    "options": {
+      "tooltip": {
+        "mode": "single",
+        "sort": "none",
+        "hideZeros": false
+      },
+      "legend": {
+        "showLegend": true,
+        "displayMode": "list",
+        "placement": "bottom",
+        "calcs": []
+      },
+      "timezone": [
+        "browser"
+      ]
+    }
+  }
